@@ -3,6 +3,7 @@ import models.Trip;
 import exo.Partie1;
 import exo.Partie2;
 import exo.Partie3;
+import exo.Partie4;
 
 import java.util.List;
 
@@ -38,4 +39,18 @@ void main() {
 
     System.out.println("bestTrip");
     partie3.bestTrip(trips).ifPresent(System.out::println);
+
+    Partie4 partie4 = new Partie4();
+
+    System.out.println("totalRevenueSequential");
+    System.out.println(partie4.totalRevenueSequential(trips));
+
+    System.out.println("totalRevenueParallel");
+    System.out.println(partie4.totalRevenueParallel(trips));
+
+    System.out.println("countByCityParallel");
+    partie4.countByCityParallel(trips).forEach((city, count) -> System.out.println(city + " : " + count));
+
+    System.out.println("premiumTripsParallel");
+    partie4.premiumTripsParallel(trips).forEach(System.out::println);
 }
